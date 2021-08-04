@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const databaseConnectivity = ()=>{    
-    const url = process.env.LOCAL_DB;
+    const url = process.env.CLOUD_DB;
 
     mongoose.connect(url, {
         useNewUrlParser: true,
