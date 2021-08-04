@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const databaseConnectivity = ()=>{    
-    const url = "mongodb://localhost:27017/mobileDB";
+    const url = process.env.LOCAL_DB;
 
     mongoose.connect(url, {
         useNewUrlParser: true,

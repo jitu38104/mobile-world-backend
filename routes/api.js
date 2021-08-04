@@ -21,7 +21,7 @@ const upload = multer({
 });
 
 // all products
-route.get("/products", async(req, res)=>{    
+route.get("/products", async(req, res)=>{
     await prodModel.find({}, (err, docs)=>{
         if(!err){
             res.json(docs);
@@ -31,7 +31,7 @@ route.get("/products", async(req, res)=>{
 
 // add new product
 route.post("/products", upload.single('prodImg'), (req, res)=>{    
-    const picPath = `http://localhost:3001/${req.file.filename}`;
+    const picPath = `${process.env.APP_URL}/${req.file.filename}`;
     const prodObj = {...req.body, imgName: req.file.filename, imgPath: picPath};
 
     const newProd = new prodModel({
